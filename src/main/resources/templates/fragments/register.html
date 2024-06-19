@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http//thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script th:src="@{/js/tailwind.config.js}"></script>
+</head>
+
+<body class="w-full h-[100vh] flex justify-center items-center bg-yellow-50" th:fragment="registro">
+    <section th:fragment="register" class="w-full h-full flex-1 flex justify-center items-center">
+        <form th:action="@{/registro}" th:object="${registro}" method="post"
+              class="w-[60%] h-[80%] flex flex-col justify-evenly p-10 bg-zinc-200 rounded-2xl shadow-2xl">
+
+            <h1 class="text-black font-bold text-7xl flex justify-center drop-shadow-2xl">REGISTER</h1>
+
+            <input type="text" placeholder="Nombre" th:field="*{nombre}"
+                class="rounded-md border-solid border-b-2 border-blue-700 p-2 outline-none focus:border-red-400 ease-in duration-300 bg-transparent text-center placeholder:text-center">
+
+            <input type="text" placeholder="Apellido" th:field="*{apellido}"
+                class="rounded-md border-solid border-b-2 border-blue-700 p-2 outline-none focus:border-red-400 ease-in duration-300 bg-transparent text-center placeholder:text-center">
+
+            <input type="email" placeholder="Correo" th:field="*{correo}"
+                class="rounded-md border-solid border-b-2 border-blue-700 p-2 outline-none focus:border-red-400 ease-in duration-300 bg-transparent text-center placeholder:text-center">
+
+            <input type="password" placeholder="Contraseña" th:field="*{contrasena}"
+                class="rounded-md border-solid border-b-2 border-blue-700 p-2 outline-none focus:border-red-400 ease-in duration-300 bg-transparent text-center placeholder:text-center">
+
+            <label>Description
+            </label>
+            <textarea
+                    th:field="*{descripcion}"
+                    class="rounded-md border-solid border-b-2 border-blue-700 outline-none bg-transparent">
+            </textarea>
+
+            <input type="submit" value="Enviar"
+                class="w-[70%] h-[10%] bg-blue-700 rounded-xl hover:bg-blue-500 ease-in duration-300 text-white mx-auto shadow-2xl">
+        </form>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script th:src="@{../static/js/tailwind.config.js}"></script>
+    <title>Lista</title>
+</head>
+<body class="w-full h-[100vh] flex justify-center items-center">
+<article th:fragment="mostrar" class="w-full h-full flex-1 flex justify-center items-center" >
+
+    <table class="py-2 px-4 border-b-2 border-black border-solid">
+        <thead>
+        <th class="py-2 px-4 border-2 border-black border-solid bg-lime-300">Id</th>
+        <th class="py-2 px-4 border-2 border-black border-solid bg-lime-300">Nombre</th>
+        <th class="py-2 px-4 border-2 border-black border-solid bg-lime-300">Apellido</th>
+        <th class="py-2 px-4 border-2 border-black border-solid bg-lime-300">Correo</th>
+        <th class="py-2 px-4 border-2 border-black border-solid bg-lime-300">Contraseña</th>
+        <th class="py-2 px-4 border-2 border-black border-solid bg-lime-300">Descripcion</th>
+        </thead>
+
+        <tbody>
+        <tr th:each="registro : ${result}"
+            class="py-2 px-4 border-b-2 border-black border-solid">
+            <td class="text-center  border-2 border-black border-solid bg-lime-300" th:text="${registro.id}"></td>
+            <td class="text-center border-2 border-black border-solid" th:text="${registro.nombre}"></td>
+            <td class="text-center border-2 border-black border-solid" th:text="${registro.apellido}"></td>
+            <td class="text-center border-2 border-black border-solid" th:text="${registro.correo}"></td>
+            <td class="text-center border-2 border-black border-solid" th:text="${registro.contrasena}"></td>
+            <td class="text-center border-2 border-black border-solid" th:text="${registro.descripcion}"></td>
+            <td class="text-center border-2 border-black border-solid bg-red-700"><a th:href="@{/lista/{id}(id=${registro.id})}">Eliminar</a></td>
+            <td class="text-center border-2 border-black border-solid bg-green-700"><a th:href="@{/registro/edit/{id}(id=${registro.id})}">Editar</a></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+
+</article>
+</body>
+</html>
